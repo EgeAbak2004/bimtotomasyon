@@ -35,7 +35,7 @@ class SalesController extends Controller
 
 
 
-        if (!Auth::guest() && gettype($req->Take) == "String") {
+        if (!Auth::guest() && gettype($req->Take) != "String") {
             $product = product::with("product")->find($req->id);
 
             if ($product->stock > 0) {
